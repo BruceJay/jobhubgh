@@ -1,0 +1,25 @@
+.example-large-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 16px;
+  padding: 16px;
+  border-radius: 30px;
+}
+.example-large-box {
+  height: 500px;
+  width: 400px;
+}
+
+.example-card {
+  max-width: 400px;
+max-height: 200px;
+}
+.example-header-image {
+  background-image: url('/src/assets/Images/mansonsavator.jpg');
+  background-size: cover;
+}
+.fillspace
+{
+  flex: 1 1 auto;
+}

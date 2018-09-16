@@ -1,0 +1,198 @@
+<h1 fxLayoutAlign="center center"> Signup Page</h1>
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+<mat-step [stepControl]="firstFormGroup">
+<form [formGroup]="firstFormGroup">
+  <ng-template matStepLabel> Part one (1)</ng-template>
+  <div fxLayout="row"  fxLayoutGap="40px">
+      <mat-form-field>
+          <input type="text" matInput placeholder="Your Surname">
+        </mat-form-field>
+        <mat-form-field>
+            <input type="text" matInput placeholder="Your First Name">
+          </mat-form-field>
+  </div>
+  <div fxLayout="row"  fxLayoutGap="40px" >
+      <mat-form-field>
+          <input type="text" matInput placeholder="Your Middle Name">
+        </mat-form-field>
+        <mat-form-field>
+            <input type="text" matInput placeholder="Your Others">
+          </mat-form-field>
+  </div >
+  <div fxLayout="row"  fxLayoutGap="40px" >
+<mat-form-field>
+<mat-select placeholder="Select Gender" [formControl]="Gendercontrol" required>
+ <mat-option></mat-option>
+ <mat-option *ngFor="let  gender of genders" [value] ="gender">
+   {{gender.name}}
+ </mat-option>
+</mat-select>
+<mat-error *ngIf="Gendercontrol.hasError('required')"> Please Select  Gender</mat-error>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-select placeholder="Select Title" [formControl]="Titlecontrol" required>
+    <mat-option></mat-option>
+    <mat-option *ngFor="let  title of Titles" [value] ="title">
+      {{title.name}}
+    </mat-option>
+  </mat-select>
+ <mat-error *ngIf="Titlecontrol.hasError('required')"> Please Select  Gender</mat-error>
+ </mat-form-field>
+  </div>
+  <div fxLayout="row"  fxLayoutGap="40px">
+      <mat-form-field>
+        <mat-select placeholder="Select Marital Status" [formControl]="MarriageControl" required>
+          <mat-option></mat-option>
+          <mat-option *ngFor="let  marriage of married" [value] ="marriage">
+            {{marriage.name}}
+          </mat-option>
+        </mat-select>
+       <mat-error *ngIf="MarriageControl.hasError('required')"> Please Select  Marital Status</mat-error>
+       </mat-form-field>
+   <mat-form-field>
+    <mat-select placeholder="Select  your District" [formControl]="DistrictControl" required>
+      <mat-option></mat-option>
+      <mat-option *ngFor="let  district of disttricts" [value] ="district">
+        {{district.name}}
+      </mat-option>
+    </mat-select>
+   <mat-error *ngIf="DistrictControl.hasError('required')"> Please Select a District</mat-error>
+   </mat-form-field>
+  </div>
+  <div fxLayout="row"  fxLayoutGap="30px">
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Date of birth">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+          <mat-select placeholder=" Working Days " [formControl]="WorkingPeriodControl" required>
+            <mat-option></mat-option>
+            <mat-option *ngFor="let  WorkingPeriod of WorkingPeriods" [value] ="WorkingPeriod">
+              {{WorkingPeriod.name}}
+            </mat-option>
+          </mat-select>
+         <mat-error *ngIf="WorkingPeriodControl.hasError('required')"> Please Select Working Days</mat-error>
+         </mat-form-field>
+                 </div>
+                 <div fxLayout="row"  fxLayoutGap="40px">
+                    <mat-form-field>
+                      <input type="email" matInput placeholder="Your Email">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <input type="text" matInput placeholder="Your Residential  Address">
+                    </mat-form-field>
+                          </div>
+                          <div fxLayout="row" fxLayoutGap="40px" >
+                              <mat-form-field>
+                                <mat-select placeholder="Select Qualification" [formControl]="QualificationControl" required>
+                                  <mat-option></mat-option>
+                                  <mat-option *ngFor="let  qualification of qualifications" [value] ="qualification">
+                                    {{qualification.name}}
+                                  </mat-option>
+                                </mat-select>
+                               <mat-error *ngIf="QualificationControl.hasError('required')"> Please Select a Qualification</mat-error>
+                               </mat-form-field>
+                               <mat-form-field>
+                                 <input type="text" matInput placeholder="Job Title Eg. Mansons">
+                               </mat-form-field>
+                            </div>
+
+                            <div  fxLayout="row" fxLayoutGap="40px">
+                              <mat-form-field>
+                                <input type="text" matInput placeholder=" Years of Job Expirience">
+                              </mat-form-field>
+                              <mat-form-field>
+                                <mat-select placeholder=" Any Disability" [formControl]="DisabilityControl" required>
+                                  <mat-option></mat-option>
+                                  <mat-option *ngFor="let  disability of disabilities" [value] ="disability">
+                                    {{disability.name}}
+                                  </mat-option>
+                                </mat-select>
+                               <mat-error *ngIf="DisabilityControl.hasError('required')"> Please Select a Disability if Any</mat-error>
+                               </mat-form-field>
+                            </div>
+<div>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+</form>
+</mat-step>
+
+<mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Part two (2)</ng-template>
+
+
+
+
+
+                              <div fxLayout="row" fxLayoutGap="40px">
+                        <mat-form-field>
+                          <input type="text" matInput placeholder="Previous Company/if any">
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input type="text" matInput placeholder="Prefered Working Site Eg.Painter">
+                          </mat-form-field>
+                              </div>
+                        <div fxLayout="row" fxLayoutGap="40px" >
+                          <mat-form-field>
+                            <input type="text" matInput placeholder="Home/Office Address">
+                          </mat-form-field>
+
+                          <mat-form-field>
+                              <mat-select placeholder=" Employment Category " [formControl]="CategoryControl" required>
+                                <mat-option></mat-option>
+                                <mat-option *ngFor="let  category of categories" [value] ="category">
+                                  {{category.name}}
+                                </mat-option>
+                              </mat-select>
+                             <mat-error *ngIf="CategoryControl.hasError('required')"> Please Select Employment Category</mat-error>
+                             </mat-form-field>
+                        </div>
+                        <div fxLayouyt="row" fxLayoutGap="40px" >
+
+                            <mat-form-field class="example-full-width">
+                                <span matPrefix>+233 &nbsp;</span>
+                                <input type="tel" matInput placeholder="Telephone">
+                                <mat-icon matSuffix>mode_edit</mat-icon>
+                              </mat-form-field>
+                        </div>
+                        <div fxLayout="Column" fxLayoutGap="40px">
+
+                        <input type="file">
+                        <span> Profile Photo</span>
+                        </div>
+                        <div>
+                          <span></span>
+                        </div>
+                        <div fxLayout="Column" fxLayoutGap="40px">
+
+                            <input type="file">
+                            <span> Certificate</span>
+
+                            </div>
+                        <div fxLayout="column" fxLayoutGap="40px">
+                        <mat-form-field>
+                          <textarea placeholder="In your own words,  Tell us about yourself"  matInput cols="30" rows="10"></textarea>
+                        </mat-form-field>
+                        </div>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      You are now done.
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+
+</mat-horizontal-stepper>
+
+
